@@ -20,7 +20,7 @@ const Login = () => {
         e.preventDefault();
         try{
 
-        const response = await axios.post('http://localhost:4000/users/register', {
+        const response = await axios.post('https://taskify-backend-fc3q.onrender.com/users/register', {
             username,password
         });
          console.log(response);

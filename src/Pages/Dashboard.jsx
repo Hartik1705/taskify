@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     const token = localStorage.getItem('token');
 
-    const response = await axios.get('http://localhost:4000/tasks/show', {
+    const response = await axios.get('https://taskify-backend-fc3q.onrender.com/tasks/show', {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -32,7 +32,7 @@ const Dashboard = () => {
     }
 
     else {
-      console.log("Failed to fetch")
+      toast.error("Login in first")
     }
 
 
@@ -52,7 +52,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await axios.delete(`http://localhost:4000/tasks/delete/${id}`, {
+      const response = await axios.delete(`https://taskify-backend-fc3q.onrender.com/tasks/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -83,7 +83,7 @@ const Dashboard = () => {
         toast.error("Please login");
       }
 
-      const response = await axios.put(`http://localhost:4000/tasks/update/${listID}`,{
+      const response = await axios.put(`https://taskify-backend-fc3q.onrender.com/tasks/update/${listID}`,{
         title,description
       }, {
         headers: {
@@ -109,7 +109,7 @@ const Dashboard = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    const response = await axios.post('http://localhost:4000/tasks/create', {
+    const response = await axios.post('https://taskify-backend-fc3q.onrender.com/tasks/create', {
 
 
       title: title,
