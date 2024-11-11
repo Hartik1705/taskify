@@ -52,17 +52,25 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem('token');
 
+      if(!token){
+        toast.error("Login first");
+      }
+      else{
+
       const response = await axios.delete(`https://taskify-backend-fc3q.onrender.com/tasks/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       })
 
+      
+
       getList();
       toast.success(response.data.message);
       setTitle('');
       setDescription('');
-      setlistId(null); 
+      setlistId(null);
+    } 
 
     }
 
