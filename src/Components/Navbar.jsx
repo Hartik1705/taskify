@@ -19,8 +19,13 @@ const Navbar = () => {
 }, [navigate])
 
   const handleLogOut = () =>{
-    logout();
     navigate('/login');
+  
+    setTimeout(()=>{
+      toast.success("logged out!");
+    },50)
+    
+    logout();
   }
 
   return (
